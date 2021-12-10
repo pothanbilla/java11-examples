@@ -8,11 +8,11 @@ node('jdk11-maven') {
         sh '''
            echo "PATH=${PATH}"
            echo "M2_HOME=${M2_HOME}"
-           
+
         '''
         sh 'mvn clean package'
     }
     stage('archive') {
-        archive 'target/*.jar'
+        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
     }
 }
