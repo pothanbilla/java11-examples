@@ -1,4 +1,4 @@
-node('jdk11-maven') {
+node('build-jdk11-mvn3.8.4-1') {
     // some block
     stage('git') {
     // some block
