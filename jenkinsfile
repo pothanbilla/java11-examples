@@ -2,7 +2,7 @@ node('jdk11-maven') {
     // some block
     stage('git') {
     // some block
-    git 'https://github.com/pothanbilla/java11-examples.git'
+        git 'https://github.com/pothanbilla/java11-examples.git'
     }
     stage('build') {
         sh '''
