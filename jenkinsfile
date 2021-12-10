@@ -5,6 +5,11 @@ node('jdk11-maven') {
     git 'https://github.com/pothanbilla/java11-examples.git'
     }
     stage('build') {
+        sh '''
+           echo "PATH=${PATH}"
+           echo "M2_HOME=${M2_HOME}"
+           
+        '''
         sh 'mvn clean package'
     }
     stage('archive') {
