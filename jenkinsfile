@@ -1,0 +1,13 @@
+node('jdk11-maven') {
+    // some block
+    stage('git') {
+    // some block
+    git 'https://github.com/pothanbilla/java11-examples.git'
+    }
+    stage('build') {
+        sh 'mvn clean package'
+    }
+    stage('archive') {
+        archive 'target/*.jar'
+    }
+}
