@@ -1,6 +1,6 @@
 node('jdk11-maven') {
 
-    properties([pipelineTriggers([upstream('starterproject, ')])])
+    properties([pipelineTriggers([upstream('starterproject, ')])])    
     
     stage('git') {
         
