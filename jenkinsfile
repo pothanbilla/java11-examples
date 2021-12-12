@@ -1,7 +1,9 @@
 node('jdk11-maven') {
-    // some block
+
+    properties([pipelineTriggers([upstream('starterproject, ')])])
+    
     stage('git') {
-    // some block
+        
         git 'https://github.com/pothanbilla/java11-examples.git'
     }
     stage('build') {
@@ -14,5 +16,8 @@ node('jdk11-maven') {
     }
     stage('archive') {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+    }
+    stage('publish test reports') {
+        junit'**/TEST-*.xml'
     }
 }
